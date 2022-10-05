@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- 文字コードはutf-8 -->
+    <meta charset="UTF-8">
+    <!-- 表示する画面のサイズ -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>テンプレート</title>
+
+    <!-- ブラウザのタブのアイコンを指定 -->
+    <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+    <!-- Googleから提供されているフォントを使用 -->
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+    <!-- 共通のcssを読み込む -->
+    <link href="../../_common/css/style.css" rel="stylesheet">
+
+    <!-- 講師用のcssを読み込む(文字サイズ大きく) -->
+    <style>
+        section img {
+            max-width: 100%;
+        }
+
+        .center {
+            margin: 0 auto 0 auto 0;
+            max-width: 90%;
+            width: 500px;
+        }
+
+        ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            flex: 1 1 auto;
+            margin-right: 8px;
+        }
+
+        li:last-of-type {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>タイトル</h1>
+            <h2>サブタイトル</h2>
+        </div><!-- /.container -->
+    </header>
+
+    <main>
+        <div class="container">
+            <section>
+                <!-- 必要であればここにHTMLを追記 -->
+                <div class="center">
+                    <div>
+                        <img src="..\..\img\img1.jpg" id="bigimg">
+                    </div>
+                    <ul>
+                        <li><img src="..\..\img\thumb-img1.jpg" class="thump" data-image="..\..\img\img1.jpg"></li>
+                        <li><img src="..\..\img\thumb-img2.jpg" class="thump" data-image="..\..\img\img2.jpg"></li>
+                        <li><img src="..\..\img\thumb-img3.jpg" class="thump" data-image="..\..\img\img3.jpg"></li>
+                        <li><img src="..\..\img\thumb-img4.jpg" class="thump" data-image="..\..\img\img4.jpg"></li>
+                    </ul>
+                </div>
+            </section>
+        </div><!-- /.container -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>JavaScript Samples</p>
+        </div><!-- /.container -->
+    </footer>
+    <script>
+        'use strict';
+
+        const thumps = document.querySelectorAll('.thump');
+        thumps.forEach(function (item, index) {
+            item.onclick = function () {
+                document.getElementById('bigimg').src = this.dataset.image;
+
+            }
+        });
+        
+    </script>
+
+    <!-- JavaScriptのファイルを読み込む -->
+</body>
+
+</html>

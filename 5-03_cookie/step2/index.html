@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- 文字コードはutf-8 -->
+    <meta charset="UTF-8">
+    <!-- 表示する画面のサイズ -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>テンプレート</title>
+
+    <!-- ブラウザのタブのアイコンを指定 -->
+    <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+    <!-- Googleから提供されているフォントを使用 -->
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+    <!-- 共通のcssを読み込む -->
+    <link href="../../_common/css/style.css" rel="stylesheet">
+    <link href="panel.css" rel="stylesheet">
+
+    <!-- 講師用のcssを読み込む(文字サイズ大きく) -->
+    <!-- <link rel="stylesheet" href="../../koushi.css"> -->
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>タイトル</h1>
+            <h2>サブタイトル</h2>
+        </div><!-- /.container -->
+    </header>
+
+    <main>
+        <div class="container">
+            <section>
+                <!-- 必要であればここにHTMLを追記 -->
+                <p><button id="testbtn">テスト用 cookie削除</button></p>
+            </section>
+        </div><!-- /.container -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>JavaScript Samples</p>
+        </div><!-- /.container -->
+    </footer>
+
+    <div id="privacy-panel">
+        <p>当サイトではユーザーエクスペリエンス向上の為クッキーを使用しています。
+            また、匿名でアクセス状況のデータを収集しています。詳しい情報は当サイト
+            のプライバシーポリシーをご覧ください
+        </p>
+        <button id="agreebtn">承認する</button>
+    </div>
+
+    <script src="../../_common/scripts/js.cookie.js"></script>
+    <script>
+        'use strict';
+
+        const agree = Cookies.get('Cookie-agree');
+        
+        if (agree === 'yes') {
+            console.log('クッキーを確認しました');
+
+        } else {
+            console.log('クッキーを確認できません');
+            document.getElementById('agreebtn').onclick = function () {
+                Cookies.set('cookie-agree', 'yes', { expires: 7 });
+            };
+        }
+        //クッキー削除（テスト用）
+        document.getElementById('testbtn').onclick = function () {
+            Cookies.remove('cookie-agree');
+        };
+
+    </script>
+
+    <!-- JavaScriptのファイルを読み込む -->
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
